@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manurosh Tours - Professional Sri Lanka Chauffeur & Private Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html#home" class="logo"><i class="fa-solid fa-compass"></i> MANUROSH <span>TOURS</span></a>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+
+                <a href="https://wa.me/94771234567" target="_blank" class="whatsapp-btn-nav"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+                <button class="menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH SLIDESHOW -->
+    <section id="home" class="hero-slider">
+        <div class="hero-bg-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Experience the Wonder of Sri Lanka</h1>
+            <p>Your royal journey begins here with expert chauffeur guides and bespoke travel packages.</p>
+            <div class="hero-btns">
+                <a href="#tours" class="btn-primary">Explore Tours</a>
+                <a href="https://wa.me/94771234567?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20plan%20a%20custom%20trip." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Customize Your Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <div class="search-container">
+        <div class="search-box">
+            <div class="search-item">
+                <label><i class="fa-solid fa-location-dot"></i> Destination</label>
+                <select id="destFilter">
+                    <option value="all">All Sri Lanka</option>
+                    <option value="sigiriya">Sigiriya & Cultural Triangle</option>
+                    <option value="kandy">Kandy & Ella Hill Country</option>
+                    <option value="yala">Yala & South Safari</option>
+                </select>
+            </div>
+            <div class="search-item">
+                <label><i class="fa-solid fa-clock"></i> Duration</label>
+                <select id="durationFilter">
+                    <option value="all">Any Duration</option>
+                    <option value="3">3 - 5 Days</option>
+                    <option value="7">7 - 10 Days</option>
+                    <option value="14">14+ Days</option>
+                </select>
+            </div>
+            <div class="search-item">
+                <button class="btn-primary w-100" onclick="filterTours()">Search Tours</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES BAR -->
+    <section class="container">
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Always available on WhatsApp for any assistance during your journey.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-sliders"></i>
+                <h3>Tailor-Made</h3>
+                <p>100% flexible itineraries customized to your interests and pace.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-car-side"></i>
+                <h3>Luxury Vehicles</h3>
+                <p>Air-conditioned private cars and vans driven by licensed guides.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Instant Quotes</h3>
+                <p>Direct WhatsApp booking with transparent pricing & zero hidden fees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="welcome-section">
+        <div class="container">
+            <span class="welcome-subtitle">Welcome to Manurosh Tours</span>
+            <h2>Sri Lanka's Premier Private Tour & Chauffeur Specialist</h2>
+            <p>We craft unforgettable journeys across the ancient kingdoms, misty hill countries, leopard-inhabited wildlife safaris, and golden tropical coastlines of Sri Lanka. With our luxury air-conditioned fleet and expert chauffeur guides, every trip is tailored to perfection.</p>
+        </div>
+    </section>
+
+    <!-- TOUR PACKAGES SECTION -->
+    <section id="tours" class="section">
+        <div class="container">
+            <h2 class="section-title">Popular Tour Packages</h2>
+            <p class="section-subtitle">Bespoke itineraries tailored to your schedule, interests, and preferences.</p>
+
+            <div class="tour-grid">
+
+                <!-- TOUR 1: 16-Day Grand Island Discovery -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">16 Days / 15 Nights</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 5.0</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Grand Tour</span>
+                            <span class="tag">All Inclusive</span>
+                        </div>
+                        <h3>Grand Island Discovery Tour</h3>
+                        <p>Comprehensive island journey covering Negombo, Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Yala, and Hikkaduwa beach stay.</p>
+                        <div class="tour-footer">
+                            <a href="tour-16-day.html" class="btn-sm"><i class="fa-solid fa-eye"></i> View Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOUR 2: 14-Day Scenic Hill Country -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">14 Days / 13 Nights</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Best Seller</span>
+                            <span class="tag">Hill Country</span>
+                        </div>
+                        <h3>Scenic Hill Country & Udawalawe</h3>
+                        <p>Relaxed leisure pacing through Negombo, Sigiriya, Kandy, Nanu Oya train, Udawalawe safari, and Galle fort resort.</p>
+                        <div class="tour-footer">
+                            <a href="tour-14-day.html" class="btn-sm"><i class="fa-solid fa-eye"></i> View Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOUR 3: 7-Day Cultural Triangle & Safari -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1588598124813-88981f73df64?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">7 Days / 6 Nights</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Safari Included</span>
+                            <span class="tag">Culture</span>
+                        </div>
+                        <h3>Cultural Triangle & Wildlife Safari</h3>
+                        <p>Explore ancient capitals of Anuradhapura and Polonnaruwa, Sigiriya Rock Fortress, Matale spice gardens, and Yala National Park.</p>
+                        <div class="tour-footer">
+                            <a href="tour-7-day.html" class="btn-sm"><i class="fa-solid fa-eye"></i> View Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOUR 4: 5-Day Hill Country & Train -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">5 Days / 4 Nights</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Scenic Train</span>
+                            <span class="tag">Tea Country</span>
+                        </div>
+                        <h3>Hill Country & Train Experience</h3>
+                        <p>Discover Kandy Temple of the Tooth, take the scenic blue train to Nuwara Eliya tea estates, and explore Ella Nine Arch Bridge.</p>
+                        <div class="tour-footer">
+                            <a href="tour-5-day.html" class="btn-sm"><i class="fa-solid fa-eye"></i> View Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOUR 5: 3-Day Wildlife & Beach Express -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">3 Days / 2 Nights</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.8</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Express Safari</span>
+                            <span class="tag">Beach Stay</span>
+                        </div>
+                        <h3>Wildlife & Beach Express</h3>
+                        <p>Quick getaway featuring Yala leopard safari, Kosgoda turtle hatchery, and Hikkaduwa golden beach relaxation.</p>
+                        <div class="tour-footer">
+                            <a href="tour-3-day.html" class="btn-sm"><i class="fa-solid fa-eye"></i> View Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOUR 6: Custom Tour -->
+                <div class="tour-card">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80');">
+                        <span class="badge">Custom Duration</span>
+                        <span class="rating-badge"><i class="fa-solid fa-star"></i> 5.0</span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-tags">
+                            <span class="tag">Tailor Made</span>
+                            <span class="tag">Bespoke</span>
+                        </div>
+                        <h3>Custom Tailor-Made Tour</h3>
+                        <p>Build your dream Sri Lankan vacation with our expert chauffeur guides. Choose your own route, hotels, and activities.</p>
+                        <div class="tour-footer">
+                            <a href="#contact" class="btn-sm"><i class="fa-solid fa-pen-to-square"></i> Plan Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">Explore Sri Lanka</h2>
+            <p class="section-subtitle">Moments captured across our private tours and scenic chauffeur drives.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80" alt="Sigiriya Citadel"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?auto=format&fit=crop&w=600&q=80" alt="Scenic Hill Country Train"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=600&q=80" alt="Wildlife Safari Leopard"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=600&q=80" alt="Tropical Beach Resort"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & CUSTOM TOUR -->
+    <section id="contact" class="section">
+        <div class="container contact-grid">
+            <div>
+                <h2 class="section-title" style="text-align: left;">Plan Your Journey</h2>
+                <p>Have questions or want a customized quotation for your Sri Lanka tour? Get in touch with us anytime.</p>
+                <ul class="contact-details">
+                    <li><i class="fa-solid fa-phone"></i> +94 77 123 4567</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@manuroshtours.lk</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Colombo & Negombo, Sri Lanka</li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            
+            <div class="custom-tour-box">
+                <div class="custom-tour-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Custom Itinerary Request</h3>
+                <p>Send us your arrival dates, passenger count, and preferred attractions on WhatsApp for an immediate quotation.</p>
+                <ul class="custom-features">
+                    <li><i class="fa-solid fa-check"></i> Free Instant WhatsApp Consultation</li>
+                    <li><i class="fa-solid fa-check"></i> Flexible Route & Hotel Options</li>
+                    <li><i class="fa-solid fa-check"></i> Zero Cancellation Fees</li>
+                </ul>
+                <a href="https://wa.me/94771234567?text=Hi%20Manurosh%20Tours!%20I%20want%20to%20plan%20a%20customized%20tour%20in%20Sri%20Lanka." target="_blank" class="btn-whatsapp w-100 text-center"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Manurosh Tours</h4>
+                <p>Your trusted chauffeur guide and private transport partner for exploring Sri Lanka in absolute comfort and safety.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#tours">Tour Packages</a></li>
+                    <li><a href="#gallery">Photo Gallery</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p><i class="fa-solid fa-phone"></i> +94 77 123 4567</p>
+                <p><i class="fa-solid fa-envelope"></i> info@manuroshtours.lk</p>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 Manurosh Tours. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/94771234567?text=Hi%20Manurosh%20Tours!%20I'm%20interested%20in%20booking%20a%20private%20tour." target="_blank" class="float-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // Navigation Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Dark / Light Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const themeIcon = document.getElementById('themeIcon');
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+</body>
+</html>
