@@ -122,10 +122,10 @@
             <h2 class="section-title">Popular Tour Packages</h2>
             <p class="section-subtitle">Bespoke itineraries tailored to your schedule, interests, and preferences.</p>
 
-            <div class="tour-grid">
+            <div class="tour-grid" id="tourGrid">
 
                 <!-- TOUR 1: 16-Day Grand Island Discovery -->
-                <div class="tour-card">
+                <div class="tour-card" data-dest="sigiriya kandy yala" data-days="16">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">16 Days / 15 Nights</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 5.0</span>
@@ -144,7 +144,7 @@
                 </div>
 
                 <!-- TOUR 2: 14-Day Scenic Hill Country -->
-                <div class="tour-card">
+                <div class="tour-card" data-dest="sigiriya kandy yala" data-days="14">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">14 Days / 13 Nights</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
@@ -163,7 +163,7 @@
                 </div>
 
                 <!-- TOUR 3: 7-Day Cultural Triangle & Safari -->
-                <div class="tour-card">
+                <div class="tour-card" data-dest="sigiriya yala" data-days="7">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1588598124813-88981f73df64?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">7 Days / 6 Nights</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
@@ -182,7 +182,7 @@
                 </div>
 
                 <!-- TOUR 4: 5-Day Hill Country & Train -->
-                <div class="tour-card">
+                <div class="tour-card" data-dest="kandy" data-days="5">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">5 Days / 4 Nights</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</span>
@@ -201,7 +201,7 @@
                 </div>
 
                 <!-- TOUR 5: 3-Day Wildlife & Beach Express -->
-                <div class="tour-card">
+                <div class="tour-card" data-dest="yala" data-days="3">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">3 Days / 2 Nights</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.8</span>
@@ -219,8 +219,8 @@
                     </div>
                 </div>
 
-                <!-- TOUR 6: Custom Tour -->
-                <div class="tour-card">
+                <!-- TOUR 6: Custom Tour Card (Always Visible) -->
+                <div class="tour-card custom-search-fallback" data-dest="sigiriya kandy yala" data-days="1">
                     <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80');">
                         <span class="badge">Custom Duration</span>
                         <span class="rating-badge"><i class="fa-solid fa-star"></i> 5.0</span>
@@ -233,7 +233,7 @@
                         <h3>Custom Tailor-Made Tour</h3>
                         <p>Build your dream Sri Lankan vacation with our expert chauffeur guides. Choose your own route, hotels, and activities.</p>
                         <div class="tour-footer">
-                            <a href="#contact" class="btn-sm"><i class="fa-solid fa-pen-to-square"></i> Plan Tour</a>
+                            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I%20want%20to%20plan%20a%20customized%20tour." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Book Custom Tour</a>
                         </div>
                     </div>
                 </div>
@@ -354,6 +354,44 @@
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // TOUR FILTERING WITH ALWAYS-VISIBLE CUSTOM TOUR CARD
+        function filterTours() {
+            const dest = document.getElementById('destFilter').value;
+            const duration = document.getElementById('durationFilter').value;
+            const cards = document.querySelectorAll('.tour-card');
+
+            cards.forEach(card => {
+                if (card.classList.contains('custom-search-fallback')) {
+                    card.style.display = 'block';
+                    return;
+                }
+
+                const cardDest = card.getAttribute('data-dest') || '';
+                const cardDays = parseInt(card.getAttribute('data-days')) || 0;
+
+                let matchDest = (dest === 'all') || cardDest.includes(dest);
+                let matchDuration = false;
+
+                if (duration === 'all') {
+                    matchDuration = true;
+                } else if (duration === '3') {
+                    matchDuration = (cardDays >= 3 && cardDays <= 5);
+                } else if (duration === '7') {
+                    matchDuration = (cardDays >= 6 && cardDays <= 10);
+                } else if (duration === '14') {
+                    matchDuration = (cardDays >= 14);
+                }
+
+                if (matchDest && matchDuration) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('tours').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
