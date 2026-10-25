@@ -440,7 +440,7 @@ header {
     color: var(--text-secondary);
 }
 
-/* WELCOME SECTION */
+/* WELCOME & COLLAGE SECTION */
 .welcome-section {
     padding: 100px 0;
     background: var(--bg-surface);
@@ -600,14 +600,24 @@ header {
     padding-top: 20px;
 }
 
-/* 7. HORIZONTAL SCROLLABLE DESTINATION PORTRAIT CARDS */
+/* ==========================================
+   FIXED UNRESTRICTED HORIZONTAL SCROLL TRACK
+   ========================================== */
+#gallery {
+    overflow: hidden !important;
+}
+
 .destinations-grid {
     display: flex !important;
+    flex-wrap: nowrap !important;
     overflow-x: auto !important;
+    overflow-y: visible !important;
     scroll-snap-type: x mandatory !important;
     gap: 24px !important;
-    padding-bottom: 20px !important;
+    padding: 20px 10px 40px 10px !important;
+    margin: 0 -10px !important;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 .destinations-grid::-webkit-scrollbar {
@@ -615,74 +625,74 @@ header {
 }
 
 .dest-card {
-    position: relative;
-    min-width: 280px;
-    width: 280px;
-    height: 380px;
-    border-radius: 16px;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    flex: 0 0 auto !important;
+    position: relative !important;
+    flex: 0 0 280px !important;
+    width: 280px !important;
+    min-width: 280px !important;
+    height: 380px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    box-shadow: var(--shadow) !important;
+    border: 1px solid var(--border-color) !important;
     scroll-snap-align: start !important;
-    background-color: var(--bg-surface);
+    background-color: var(--bg-surface) !important;
 }
 
 .dest-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 .dest-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.08) !important;
 }
 
 .dest-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.75) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 24px 16px;
-    text-align: center;
-    transition: background 0.3s ease;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.75) 100%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 24px 16px !important;
+    text-align: center !important;
+    transition: background 0.3s ease !important;
 }
 
 .dest-card:hover .dest-overlay {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 30%, rgba(2, 132, 199, 0.75) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 30%, rgba(2, 132, 199, 0.75) 100%) !important;
 }
 
 .dest-pin {
-    color: #ffffff;
-    font-size: 18px;
-    margin-bottom: 8px;
-    opacity: 0.9;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-    transition: transform 0.3s ease;
+    color: #ffffff !important;
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+    opacity: 0.9 !important;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+    transition: transform 0.3s ease !important;
 }
 
 .dest-card:hover .dest-pin {
-    transform: translateY(-4px) scale(1.15);
-    color: #38bdf8;
+    transform: translateY(-4px) scale(1.15) !important;
+    color: #38bdf8 !important;
 }
 
 .dest-overlay h2 {
     color: #ffffff !important;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    margin: 0;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+    margin: 0 !important;
 }
 
 /* 8. CONTACT & CUSTOM TOUR SECTION */
@@ -928,7 +938,7 @@ header {
 #reviews textarea {
     width: 100%;
     padding: 12px 14px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1.5px solid var(--border-color) !important;
     background-color: var(--input-bg) !important;
     color: var(--input-text) !important;
@@ -1157,11 +1167,26 @@ footer {
         scroll-snap-align: start !important;
     }
 
-    /* Compact Portrait Destination Cards on Mobile */
+    /* Mobile Dimensions for Destination Cards */
     .dest-card {
-        min-width: 240px;
-        width: 240px;
-        height: 330px;
+        flex: 0 0 240px !important;
+        width: 240px !important;
+        min-width: 240px !important;
+        max-width: 240px !important;
+        height: 330px !important;
+        min-height: 330px !important;
+        max-height: 330px !important;
+    }
+
+    #about .container {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    .collage-wrapper {
+        height: 340px !important;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .contact-grid, .footer-grid, .tour-details-layout { 
