@@ -641,10 +641,11 @@ header {
 
 .tour-footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Moves button to the right side */
     align-items: center;
     border-top: 1px solid var(--border-color);
     padding-top: 20px;
+    margin-top: auto; /* Ensures consistent alignment at the bottom */
 }
 
 /* 7. HORIZONTAL SCROLL DESTINATIONS TRACK */
