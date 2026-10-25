@@ -146,6 +146,7 @@ header {
     flex-shrink: 0;
 }
 
+/* Desktop size for theme toggle button */
 .theme-toggle-btn {
     background: var(--bg-secondary);
     color: var(--text-primary);
@@ -159,6 +160,19 @@ header {
     cursor: pointer;
     font-size: 18px;
     flex-shrink: 0;
+}
+
+/* Mobile responsive sizing for the button */
+@media (max-width: 900px) {
+    .theme-toggle-btn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 14px !important;
+    }
+
+    .nav-right {
+        gap: 10px !important;
+    }
 }
 
 .theme-toggle-btn:hover {
