@@ -1246,81 +1246,106 @@ footer {
     border-color: var(--primary);
 }
 
+/* ==========================================
+   FIXED ACTIVITY CARD IMAGES
+   ========================================== */
+/* ==========================================
+   ACTIVITIES SECTION - CLEAN 2-COLUMN GRID
+   ========================================== */
+.activities-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+    margin-top: 30px !important;
+}
+
+.activity-card {
+    background: var(--bg-surface) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    border: 2px solid var(--border-color) !important;
+    box-shadow: var(--shadow) !important;
+    display: flex !important;
+    flex-direction: column !important; /* Stack image on top, title below */
+    cursor: default !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.activity-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-hover) !important;
+    border-color: var(--primary) !important;
+}
+
 .activity-img {
-    position: relative;
-    height: 240px;
-    width: 100%;
-    overflow: hidden;
+    position: relative !important;
+    height: 300px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: var(--bg-surface) !important;
 }
 
 .activity-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.5s ease !important;
 }
 
 .activity-card:hover .activity-img img {
-    transform: scale(1.08);
+    transform: scale(1.05) !important;
 }
 
 .activity-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(6px);
-    color: #38bdf8;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
+    position: absolute !important;
+    top: 16px !important;
+    left: 16px !important;
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(6px) !important;
+    color: #38bdf8 !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    z-index: 2 !important;
 }
 
 .activity-body {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    padding: 24px !important;
+    text-align: center !important;
+    background: var(--bg-surface) !important;
+    width: 100% !important;
 }
 
 .activity-body h3 {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 10px;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
 }
 
-.activity-body p {
-    font-size: 14.5px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.activity-link {
-    margin-top: auto;
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.3s ease;
-}
-
-.activity-card:hover .activity-link {
-    gap: 12px;
-}
-
-/* Mobile Responsiveness for Activities */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .activities-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
-    
+
     .activity-img {
-        height: 200px;
+        height: 240px !important;
     }
+}
+
+#activities {
+    padding-top: 60px !important;
+}
+
+#activities .section-title {
+    margin-top: 20px !important;
+    margin-bottom: 12px !important;
+}
+
+#activities .section-subtitle {
+    margin-bottom: 40px !important;
 }
