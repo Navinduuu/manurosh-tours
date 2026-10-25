@@ -322,52 +322,189 @@
         </div>
     </section>
 
+
+<!-- REAL-TIME CUSTOMER FEEDBACK SECTION -->
+<section id="reviews" class="section bg-dark-alt" style="padding: 40px 15px;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 8px; font-size: 1.75rem;">Guest Reviews & Feedback</h2>
+        <p class="section-subtitle" style="text-align: center; opacity: 0.8; margin-bottom: 30px; font-size: 0.95rem;">Real-time experiences shared by our valued travelers.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <!-- Submit Review Form -->
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; box-sizing: border-box;">
+                <h3 style="margin-bottom: 15px; font-size: 1.15rem;"><i class="fa-solid fa-pen-to-square"></i> Leave a Review</h3>
+                <form id="feedbackForm">
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Your Name</label>
+                        <input type="text" id="reviewerName" placeholder="e.g. Sarah Jenkins" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                    </div>
+                    
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Country</label>
+                        <input type="text" id="reviewerCountry" placeholder="e.g. United Kingdom" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Rating</label>
+                        <select id="reviewerRating" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
+                            <option value="3">⭐⭐⭐ (3/5 Average)</option>
+                            <option value="2">⭐⭐ (2/5 Bad)</option>
+                            <option value="1">⭐ (1/5 Very Bad)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Your Feedback</label>
+                        <textarea id="reviewerMessage" rows="3" placeholder="Share your experience touring Sri Lanka with Manurosh Tours..." required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;"></textarea>
+                    </div>
+
+                    <button type="submit" style="width: 100%; background: #22c55e; color: #fff; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;">
+                        Submit Feedback
+                    </button>
+                </form>
+            </div>
+
+            <!-- Live Feedback Feed (Latest 5 Only) -->
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; box-sizing: border-box; min-height: 300px; display: flex; flex-direction: column;">
+                <h3 style="margin-bottom: 15px; font-size: 1.15rem;"><i class="fa-solid fa-comments"></i> Latest Traveler Feedback</h3>
+                <div id="feedbackList" style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+                    <!-- Realtime feedback items render here -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FIREBASE SDK & REAL-TIME FEEDBACK SCRIPT -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAR-n86VudlugmEenBhcv4SWS6NjLF2NmA",
+    authDomain: "manurosh-tours.firebaseapp.com",
+    databaseURL: "https://manurosh-tours-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "manurosh-tours",
+    storageBucket: "manurosh-tours.firebasestorage.app",
+    messagingSenderId: "54799320621",
+    appId: "1:54799320621:web:f79514ce9139fccd871aa4",
+    measurementId: "G-WLBBBKXTP2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const DB_URL = "https://manurosh-tours-default-rtdb.asia-southeast1.firebasedatabase.app";
+  const database = getDatabase(app, DB_URL);
+  const reviewsRef = ref(database, 'reviews');
+
+  const feedbackForm = document.getElementById('feedbackForm');
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('reviewerName').value;
+      const country = document.getElementById('reviewerCountry').value;
+      const rating = document.getElementById('reviewerRating').value;
+      const message = document.getElementById('reviewerMessage').value;
+
+      push(reviewsRef, {
+        name: name,
+        country: country,
+        rating: parseInt(rating),
+        message: message,
+        timestamp: Date.now()
+      }).then(() => {
+        alert("Thank you! Your feedback has been submitted successfully.");
+        feedbackForm.reset();
+      }).catch((error) => {
+        console.error("Firebase Submit Error:", error);
+        alert("Error: " + error.message);
+      });
+    });
+  }
+
+  const feedbackList = document.getElementById('feedbackList');
+  if (feedbackList) {
+    onValue(reviewsRef, (snapshot) => {
+      feedbackList.innerHTML = "";
+      const data = snapshot.val();
+
+      if (data) {
+        // Convert object to array, reverse for newest first, then take only the first 5
+        const reviewsArray = Object.values(data).reverse().slice(0, 5);
+
+        reviewsArray.forEach((review) => {
+          const stars = "⭐".repeat(review.rating);
+          const reviewElement = document.createElement('div');
+          reviewElement.style.cssText = "background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border-left: 4px solid #22c55e; flex-shrink: 0;";
+          
+          reviewElement.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 5px;">
+              <strong style="color: #fff; font-size: 0.9rem;">${review.name} <span style="font-weight: normal; font-size: 0.75rem; opacity: 0.7;">(${review.country})</span></strong>
+              <span style="font-size: 0.8rem;">${stars}</span>
+            </div>
+            <p style="margin: 0; font-size: 0.85rem; color: #d1d5db; word-break: break-word;">"${review.message}"</p>
+          `;
+          feedbackList.appendChild(reviewElement);
+        });
+      } else {
+        feedbackList.innerHTML = `<p style="color: #9ca3af; font-size: 0.85rem; text-align: center; margin: auto;">No reviews submitted yet. Be the first to leave a review!</p>`;
+      }
+    }, (error) => {
+      console.error("Firebase Read Error:", error);
+    });
+  }
+</script>
+
+        
     <!-- FOOTER -->
-<!-- FOOTER -->
-<footer class="footer bg-dark">
-    <div class="container footer-grid" style="display: flex !important; flex-wrap: wrap !important; justify-content: space-between !important; gap: 30px !important;">
-        <!-- Column 1: Brand & Bio -->
-        <div class="footer-col" style="flex: 1 1 250px; max-width: 320px;">
-            <h3 class="footer-logo"><i class="fa-solid fa-compass"></i> MANUROSH TOURS</h3>
-            <p>Your trusted Sri Lankan private tour operator and chauffeur guide. Crafting unforgettable tailored journeys across the island with comfort, safety, and authentic local experiences.</p>
+    <footer class="footer bg-dark">
+        <div class="container footer-grid" style="display: flex !important; flex-wrap: wrap !important; justify-content: space-between !important; gap: 30px !important;">
+            <!-- Column 1: Brand & Bio -->
+            <div class="footer-col" style="flex: 1 1 250px; max-width: 320px;">
+                <h3 class="footer-logo"><i class="fa-solid fa-compass"></i> MANUROSH TOURS</h3>
+                <p>Your trusted Sri Lankan private tour operator and chauffeur guide. Crafting unforgettable tailored journeys across the island with comfort, safety, and authentic local experiences.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col" style="flex: 1 1 160px;">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#tours">Tour Packages</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Details -->
+            <div class="footer-col" style="flex: 1 1 200px;">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-phone"></i> +94 75 825 7270</p>
+                <p><i class="fa-solid fa-envelope"></i> info@manuroshtours.com</p>
+                <p><i class="fa-brands fa-whatsapp"></i> +94 75 825 7270</p>
+            </div>
+
+            <!-- Column 4: Official Registration (Far Right Corner) -->
+            <div class="footer-col" style="flex: 1 1 220px;">
+                <h4>Official Registration</h4>
+                <p><i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> Registered Business</p>
+                <p><i class="fa-solid fa-building-columns"></i> <strong>MANUROSH TOURS</strong></p>
+                <p><i class="fa-solid fa-file-contract"></i> Reg No: <strong>25217047</strong></p>
+                <p><i class="fa-solid fa-shield-halved"></i> Southern Provincial Council</p>
+            </div>
         </div>
 
-        <!-- Column 2: Quick Links -->
-        <div class="footer-col" style="flex: 1 1 160px;">
-            <h4>Quick Links</h4>
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#tours">Tour Packages</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 MANUROSH TOURS. All Rights Reserved.</p>
+            </div>
         </div>
-
-        <!-- Column 3: Contact Details -->
-        <div class="footer-col" style="flex: 1 1 200px;">
-            <h4>Contact Us</h4>
-            <p><i class="fa-solid fa-phone"></i> +94 75 825 7270</p>
-            <p><i class="fa-solid fa-envelope"></i> info@manuroshtours.com</p>
-            <p><i class="fa-brands fa-whatsapp"></i> +94 75 825 7270</p>
-        </div>
-
-        <!-- Column 4: Official Registration (Far Right Corner) -->
-        <div class="footer-col" style="flex: 1 1 220px;">
-            <h4>Official Registration</h4>
-            <p><i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> Registered Business</p>
-            <p><i class="fa-solid fa-building-columns"></i> <strong>MANUROSH TOURS</strong></p>
-            <p><i class="fa-solid fa-file-contract"></i> Reg No: <strong>25217047</strong></p>
-            <p><i class="fa-solid fa-shield-halved"></i> Southern Provincial Council</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <p>&copy; 2026 MANUROSH TOURS. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'm%20interested%20in%20booking%20a%20private%20tour." target="_blank" class="float-whatsapp">
@@ -446,5 +583,8 @@
             document.getElementById('tours').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+
+
+
 </body>
 </html>
