@@ -108,13 +108,46 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="welcome-section">
-        <div class="container">
-            <span class="welcome-subtitle">Welcome to Manurosh Tours</span>
-            <h2>Sri Lanka's Premier Private Tour & Chauffeur Specialist</h2>
-            <p>We craft unforgettable journeys across the ancient kingdoms, misty hill countries, leopard-inhabited wildlife safaris, and golden tropical coastlines of Sri Lanka. With our luxury air-conditioned fleet and expert chauffeur guides, every trip is tailored to perfection.</p>
+    <!-- ABOUT US & STYLISH PHOTO COLLAGE SECTION -->
+<section id="about" class="section bg-white" style="overflow: hidden;">
+    <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center;">
+        
+        <!-- Left Column: Compelling Brand Copy -->
+        <div>
+            <span class="welcome-subtitle" style="display: block; margin-bottom: 12px;">Sri Lanka, the way locals travel it.</span>
+            <h2 style="font-size: 42px; font-weight: 800; color: var(--text-primary); line-height: 1.2; margin-bottom: 24px; letter-spacing: -1px;">
+                Authentic journeys guided by those who know it best.
+            </h2>
+            <p style="font-size: 16.5px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px;">
+                We are an expert private tour and chauffeur service based in Sri Lanka. We plan bespoke journeys tailored around your dates, pace, and interests, then travel the island with you in your own private, air-conditioned vehicle with a licensed guide who grew up right here.
+            </p>
         </div>
-    </section>
+
+        <!-- Right Column: Lihiniya-Style Overlapping Photo Collage -->
+        <div class="collage-wrapper" style="position: relative; height: 440px;">
+            <!-- Top Right Image (Temple/Culture) -->
+            <div style="position: absolute; top: 0; right: 0; width: 62%; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="beach.jpg" alt="Sri Lanka Culture" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- Far Right Image (Stilt Fisherman / Coast) -->
+            <div style="position: absolute; top: 0; right: 65%; width: 32%; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="waterfall.jpg" alt="Sri Lanka Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- Bottom Right Image (Misty Mountains / Tea Country) -->
+            <div style="position: absolute; top: 280px; right: 0; width: 45%; height: 150px; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="tea state.jpg" alt="Hill Country" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- Floating Overlapping Sunset Card -->
+            <div style="position: absolute; top: 180px; left: 0; width: 48%; height: 240px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.25); border: 4px solid var(--bg-surface);">
+                <img src="lotustower.jpg" alt="Sunset Beach Sri Lanka" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- TOUR PACKAGES SECTION -->
     <section id="tours" class="section">
@@ -260,37 +293,75 @@
         </div>
     </section>
 
-<!-- PHOTO GALLERY -->
 <section id="gallery" class="section bg-white">
     <div class="container">
         <h2 class="section-title">Explore Sri Lanka</h2>
         <p class="section-subtitle">Moments captured across our private tours and scenic chauffeur drives.</p>
         
-        <div class="gallery-grid">
-            <!-- 1. Sigiriya -->
-            <div class="gallery-item" style="position: relative; height: 260px; overflow: hidden; border-radius: 12px; background: #263238;">
-                <img src="sigiriya.png" alt="Sigiriya Rock Fortress" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important;">
-            </div>
+        <div class="destinations-grid">
+            <!-- 1. Anuradhapura -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Anuradhapura." target="_blank" class="dest-card">
+                <img src="anuradhapura.jpg" alt="Anuradhapura">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>ANURADHAPURA</h2>
+                </div>
+            </a>
 
-            <!-- 2. Nine Arch Bridge -->
-            <div class="gallery-item" style="position: relative; height: 260px; overflow: hidden; border-radius: 12px; background: #263238;">
-                <img src="natabun.jpg" alt="Nine Arch Bridge Ella" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important;">
-            </div>
+            <!-- 2. Sigiriya -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Sigiriya." target="_blank" class="dest-card">
+                <img src="sigiriya.png" alt="Sigiriya">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>SIGIRIYA</h2>
+                </div>
+            </a>
 
-            <!-- 3. Coconut Tree Hill -->
-            <div class="gallery-item" style="position: relative; height: 260px; overflow: hidden; border-radius: 12px; background: #263238;">
-                <img src="mirissa.jpg" alt="Coconut Tree Hill Mirissa" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important;">
-            </div>
+            <!-- 3. Polonnaruwa -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Polonnaruwa." target="_blank" class="dest-card">
+                <img src="natabun.jpg" alt="Polonnaruwa">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>POLONNARUWA</h2>
+                </div>
+            </a>
 
-            <!-- 4. Yala Safari -->
-            <div class="gallery-item" style="position: relative; height: 260px; overflow: hidden; border-radius: 12px; background: #263238;">
-                <img src="udawalawa.jpg" alt="Yala National Park Safari" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important;">
-            </div>
+            <!-- 4. Mirissa -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Mirissa." target="_blank" class="dest-card">
+                <img src="mirissa.jpg" alt="Mirissa">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>MIRISSA</h2>
+                </div>
+            </a>
+
+            <!-- 5. Udawalawa -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Udawalawa." target="_blank" class="dest-card">
+                <img src="udawalawa.jpg" alt="Udawalawa">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>UDAWALAWA</h2>
+                </div>
+                </div>
+            </a>
+
+            <!-- 6. Arugam Bay -->
+            <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20visit%20Arugam%20Bay." target="_blank" class="dest-card">
+                <img src="arugambay.jpg" alt="Arugam Bay">
+                <div class="dest-overlay">
+                    <i class="fa-solid fa-location-dot dest-pin"></i>
+                    <h2>ARUGAM BAY</h2>
+                </div>
+                </div>
+            </a>
+
+
+
         </div>
     </div>
 </section>
 
-    <!-- CONTACT & CUSTOM TOUR -->
+<!-- CONTACT & CUSTOM TOUR -->
     <section id="contact" class="section">
         <div class="container contact-grid">
             <div>
@@ -299,7 +370,7 @@
                 <ul class="contact-details">
                     <li><i class="fa-solid fa-phone"></i> +94 75 825 7270</li>
                     <li><i class="fa-solid fa-envelope"></i> info@manuroshtours.lk</li>
-                    <li><i class="fa-solid fa-location-dot"></i> Colombo & Negombo, Sri Lanka</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Colombo & Bentota, Sri Lanka</li>
                 </ul>
                 <div class="social-links">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>

@@ -1,12 +1,12 @@
 /* ==========================================================================
-   MANUROSH TOURS - PRODUCTION MASTER STYLESHEET (BALANCED MOBILE MARGINS)
+   MANUROSH TOURS - VIBRANT & MODERN MASTER STYLESHEET
    ========================================================================== */
 
-/* DARK / LIGHT MODE DESIGN VARIABLES */
+/* 1. DYNAMIC VIBRANT COLOR PALETTE & LIGHT/DARK VARIABLES */
 :root {
     --bg-body: #f8fafc;
     --bg-surface: #ffffff;
-    --bg-secondary: #f1f5f9;
+    --bg-secondary: #f0fdf4;
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --border-color: #cbd5e1;
@@ -14,22 +14,28 @@
     --primary-dark: #0369a1;
     --accent: #10b981;
     --accent-hover: #059669;
-    --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    --shadow-hover: 0 20px 40px rgba(2, 132, 199, 0.18);
+    --gradient-primary: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+    --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
+    --shadow-hover: 0 20px 40px rgba(2, 132, 199, 0.22);
+    --input-bg: #ffffff;
+    --input-text: #0f172a;
 }
 
 body.dark-mode {
     --bg-body: #07090e;
     --bg-surface: #111827;
-    --bg-secondary: #1f2937;
+    --bg-secondary: #172554;
     --text-primary: #f9fafb;
     --text-secondary: #9ca3af;
     --border-color: #374151;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    --shadow-hover: 0 20px 40px rgba(2, 132, 199, 0.35);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    --shadow-hover: 0 20px 40px rgba(2, 132, 199, 0.4);
+    --input-bg: #1f2937;
+    --input-text: #ffffff;
 }
 
-/* GLOBAL RESETS & TRANSITIONS */
+/* 2. GLOBAL RESETS & BASE STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -68,9 +74,7 @@ body {
     width: 100%;
 }
 
-/* ==========================================================================
-   HEADER & NAVIGATION
-   ========================================================================== */
+/* 3. HEADER & NAVIGATION */
 header {
     background: var(--bg-surface);
     backdrop-filter: blur(12px);
@@ -164,22 +168,21 @@ header {
 }
 
 .whatsapp-btn-nav {
-    background: var(--accent);
+    background: var(--gradient-accent);
     color: white;
     padding: 10px 22px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     display: inline-block;
     flex-shrink: 0;
 }
 
 .whatsapp-btn-nav:hover {
-    background: var(--accent-hover);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.5);
 }
 
 .menu-btn {
@@ -193,9 +196,7 @@ header {
     padding: 4px;
 }
 
-/* ==========================================================================
-   HOMEPAGE HERO SLIDESHOW
-   ========================================================================== */
+/* 4. HOMEPAGE HERO SLIDESHOW */
 .hero-slider {
     height: 85vh;
     margin-top: 90px;
@@ -243,7 +244,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.65), rgba(2, 132, 199, 0.4));
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(2, 132, 199, 0.5) 100%);
     z-index: 2;
 }
 
@@ -260,14 +261,15 @@ header {
     margin-bottom: 20px;
     letter-spacing: -1.5px;
     line-height: 1.15;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    color: #ffffff;
 }
 
 .hero-content p {
     font-size: 20px;
     margin-bottom: 40px;
     color: #f1f5f9;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
 
 .hero-btns {
@@ -276,62 +278,58 @@ header {
     justify-content: center;
 }
 
-/* BUTTONS */
+/* BUTTONS WITH VIBRANT GRADIENTS */
 .btn-primary {
-    background: var(--primary);
+    background: var(--gradient-primary);
     color: white;
     padding: 14px 32px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
     border: none;
     cursor: pointer;
     display: inline-block;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.45);
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.5);
 }
 
 .btn-whatsapp {
-    background: var(--accent);
+    background: var(--gradient-accent);
     color: white;
     padding: 14px 32px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
     display: inline-block;
 }
 
 .btn-whatsapp:hover {
-    background: var(--accent-hover);
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
 }
 
 .btn-sm {
     padding: 10px 20px;
-    background-color: var(--primary);
+    background: var(--gradient-primary);
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 13px;
     font-weight: 700;
     display: inline-block;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
 .btn-sm:hover {
-    background-color: var(--primary-dark);
     transform: translateY(-2px) scale(1.05);
 }
 
-/* ==========================================================================
-   SEARCH BAR & FEATURE CARDS
-   ========================================================================== */
+/* 5. SEARCH BAR & COLORFUL FEATURE CARDS */
 .search-container {
     max-width: 1100px;
     margin: -50px auto 0 auto;
@@ -354,7 +352,7 @@ header {
 
 .search-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
     border-color: var(--primary);
 }
 
@@ -371,8 +369,8 @@ header {
 .search-item select {
     width: 100%;
     border: 2px solid var(--border-color);
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 10px;
+    padding: 12px 14px;
     font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
@@ -386,12 +384,6 @@ header {
 .search-item select:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
-}
-
-.search-item select option {
-    background-color: var(--bg-surface);
-    color: var(--text-primary);
-    padding: 10px;
 }
 
 .features-grid {
@@ -418,19 +410,22 @@ header {
 
 .feature-box i {
     font-size: 32px;
-    color: var(--primary);
     margin-bottom: 20px;
-    background: var(--bg-secondary);
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 14px;
     display: inline-block;
     transition: transform 0.3s ease;
 }
 
+.feature-box:nth-child(1) i { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
+.feature-box:nth-child(2) i { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.feature-box:nth-child(3) i { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.feature-box:nth-child(4) i { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+
 .feature-box:hover i {
-    transform: scale(1.15) rotate(5deg);
-    background: var(--primary);
-    color: white;
+    transform: scale(1.15) rotate(6deg);
+    background: var(--gradient-primary);
+    color: white !important;
 }
 
 .feature-box h3 {
@@ -475,9 +470,7 @@ header {
     font-size: 17px;
 }
 
-/* ==========================================================================
-   HOMEPAGE TOUR CARDS
-   ========================================================================== */
+/* 6. HOMEPAGE TOUR CARDS & VIBRANT TAGS */
 .section-title {
     text-align: center;
     font-size: 40px;
@@ -569,11 +562,21 @@ header {
 .tag {
     font-size: 11px;
     font-weight: 700;
-    color: var(--primary);
-    background: rgba(2, 132, 199, 0.1);
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 6px;
     text-transform: uppercase;
+}
+
+.tour-tags .tag:nth-child(1) {
+    background: rgba(2, 132, 199, 0.12);
+    color: #0284c7;
+    border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.tour-tags .tag:nth-child(2) {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .tour-body h3 {
@@ -597,36 +600,92 @@ header {
     padding-top: 20px;
 }
 
-/* ==========================================================================
-   GALLERY SECTION
-   ========================================================================== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+/* 7. HORIZONTAL SCROLLABLE DESTINATION PORTRAIT CARDS */
+.destinations-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 24px !important;
+    padding-bottom: 20px !important;
+    scrollbar-width: none;
 }
 
-.gallery-item {
+.destinations-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.dest-card {
+    position: relative;
+    min-width: 280px;
+    width: 280px;
+    height: 380px;
+    border-radius: 16px;
     overflow: hidden;
-    border-radius: 12px;
-    border: 2px solid var(--border-color);
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+    background-color: var(--bg-surface);
 }
 
-.gallery-item img {
+.dest-card img {
     width: 100%;
-    height: 260px;
+    height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.gallery-item img:hover {
-    transform: scale(1.1);
+.dest-card:hover img {
+    transform: scale(1.08);
 }
 
-/* ==========================================================================
-   CONTACT SECTION
-   ========================================================================== */
+.dest-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.75) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 24px 16px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.dest-card:hover .dest-overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 30%, rgba(2, 132, 199, 0.75) 100%);
+}
+
+.dest-pin {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+.dest-card:hover .dest-pin {
+    transform: translateY(-4px) scale(1.15);
+    color: #38bdf8;
+}
+
+.dest-overlay h2 {
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+/* 8. CONTACT & CUSTOM TOUR SECTION */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -674,9 +733,9 @@ header {
 }
 
 .social-links a:hover {
-    background: var(--primary);
+    background: var(--gradient-primary);
     color: white;
-    border-color: var(--primary);
+    border-color: transparent;
     transform: translateY(-4px) scale(1.1);
 }
 
@@ -732,9 +791,7 @@ header {
     color: var(--accent);
 }
 
-/* ==========================================================================
-   SUBPAGE ITINERARY STYLES
-   ========================================================================== */
+/* 9. SUBPAGE ITINERARY STYLES */
 .page-banner, .subpage-hero {
     margin-top: 90px;
     padding: 35px 20px 25px 20px;
@@ -814,14 +871,12 @@ header {
     margin-bottom: 12px;
     font-weight: 700;
     line-height: 1.4;
-    letter-spacing: -0.2px;
 }
 
 .day-card p {
     font-size: 15.5px;
     color: var(--text-secondary);
     line-height: 1.85 !important;
-    letter-spacing: 0.2px;
 }
 
 .sidebar-widget {
@@ -860,11 +915,67 @@ header {
     color: var(--accent);
 }
 
-/* ==========================================================================
-   FOOTER & FLOATING BUTTONS
-   ========================================================================== */
+/* 10. REAL-TIME CUSTOMER FEEDBACK & REVIEWS */
+#reviews .card {
+    background-color: var(--bg-surface) !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--shadow) !important;
+}
+
+#reviews input, 
+#reviews select, 
+#reviews textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border-color) !important;
+    background-color: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#reviews input:focus, 
+#reviews select:focus, 
+#reviews textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.review-card-item {
+    background-color: var(--bg-secondary) !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-left: 5px solid var(--primary) !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.review-author {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.review-country {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.review-text {
+    color: var(--text-secondary) !important;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    word-break: break-word;
+}
+
+/* 11. FOOTER & FLOATING WHATSAPP BUTTON */
 footer {
-    background: #090d16;
+    background: #07090e;
     color: #94a3b8;
     padding: 60px 0 30px 0;
     border-top: 1px solid #1e293b;
@@ -872,12 +983,12 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     margin-bottom: 40px;
 }
 
-.footer-col h4 {
+.footer-col h4, .footer-col h3 {
     color: white;
     margin-bottom: 20px;
     font-size: 18px;
@@ -913,7 +1024,7 @@ footer {
     position: fixed;
     bottom: 35px;
     right: 35px;
-    background: var(--accent);
+    background: var(--gradient-accent);
     color: white;
     width: 64px;
     height: 64px;
@@ -922,22 +1033,19 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 36px;
-    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
     z-index: 999;
 }
 
 .float-whatsapp:hover {
     transform: scale(1.15) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.7);
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVE STRUCTURE WITH BALANCED SIDE MARGINS (< 900PX)
-   ========================================================================== */
+/* 12. MOBILE RESPONSIVENESS & HORIZONTAL SCROLL TRACKS (< 900PX) */
 @media (max-width: 900px) {
-    /* Generous Side Margins for Wide Phones (e.g. 502px) */
     .container {
-        padding: 0 24px !important;
+        padding: 0 20px !important;
     }
 
     .navbar {
@@ -986,16 +1094,6 @@ footer {
         text-decoration: none;
     }
 
-    .nav-links a::after {
-        display: none;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-        border-color: var(--primary);
-        background: var(--primary);
-        color: white;
-    }
-
     .whatsapp-btn-nav { 
         display: none; 
     }
@@ -1009,33 +1107,64 @@ footer {
     .hero-content h1 {
         font-size: 28px;
         line-height: 1.2;
-        margin-bottom: 12px;
     }
 
-    .hero-content p {
-        font-size: 15px;
-        margin-bottom: 20px;
+    /* Compact Mobile Feature Boxes */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+        padding: 40px 0 !important;
     }
 
-    .btn-primary, .btn-whatsapp {
-        padding: 10px 20px;
-        font-size: 13px;
+    .feature-box {
+        padding: 20px 16px !important;
+        border-radius: 12px !important;
     }
 
-    .search-container {
-        margin-top: -20px;
-        padding: 0 20px;
+    .feature-box i {
+        font-size: 22px !important;
+        padding: 10px !important;
+        margin-bottom: 12px !important;
     }
 
-    .search-box {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 14px;
-        border: 2px solid var(--border-color) !important;
-        border-radius: 14px;
+    .feature-box h3 {
+        font-size: 15px !important;
+        margin-bottom: 6px !important;
     }
 
-    .features-grid, .tour-grid, .gallery-grid, .contact-grid, .footer-grid, .tour-details-layout { 
+    .feature-box p {
+        font-size: 12.5px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Mobile Horizontal Swipe Scroll for Tour Cards */
+    .tour-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 16px !important;
+        padding-bottom: 16px !important;
+        scrollbar-width: none; 
+    }
+
+    .tour-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tour-card {
+        flex: 0 0 85% !important;
+        max-width: 85% !important;
+        scroll-snap-align: start !important;
+    }
+
+    /* Compact Portrait Destination Cards on Mobile */
+    .dest-card {
+        min-width: 240px;
+        width: 240px;
+        height: 330px;
+    }
+
+    .contact-grid, .footer-grid, .tour-details-layout { 
         grid-template-columns: 1fr; 
     }
 
@@ -1043,68 +1172,9 @@ footer {
         padding: 40px 0 !important;
     }
 
-    .section-title {
-        font-size: 26px !important;
-        margin-bottom: 6px !important;
-    }
-
-    .section-subtitle {
-        font-size: 14px !important;
-        margin-bottom: 24px !important;
-    }
-
-    .tour-grid {
-        gap: 20px !important;
-    }
-
-    .tour-card {
-        border-radius: 14px !important;
-    }
-
-    .tour-img {
-        height: 160px !important;
-        min-height: 160px !important;
-        padding: 12px !important;
-    }
-
-    .badge, .rating-badge {
-        padding: 4px 10px !important;
-        font-size: 11px !important;
-    }
-
-    .tour-body {
-        padding: 18px !important;
-    }
-
-    .tour-tags {
-        gap: 6px !important;
-        margin-bottom: 8px !important;
-    }
-
-    .tag {
-        font-size: 10px !important;
-        padding: 3px 8px !important;
-    }
-
-    .tour-body h3 {
-        font-size: 17px !important;
-        margin-bottom: 6px !important;
-        line-height: 1.3 !important;
-    }
-
-    .tour-body p {
-        font-size: 13.5px !important;
-        line-height: 1.55 !important;
-        margin-bottom: 14px !important;
-    }
-
-    .tour-footer {
-        padding-top: 12px !important;
-    }
-
-    .btn-sm {
-        padding: 8px 16px !important;
-        font-size: 12px !important;
+    .search-box {
+        grid-template-columns: 1fr;
+        padding: 20px;
     }
 
     .float-whatsapp {
@@ -1114,219 +1184,10 @@ footer {
         bottom: 20px;
         right: 20px;
     }
+}
 
-    /* SUBPAGE ITINERARY SPACIOUS MARGINS */
-    .page-banner, .subpage-hero {
-        margin-top: 75px !important;
-        padding: 25px 20px 20px 20px !important;
+@media (max-width: 450px) {
+    .features-grid {
+        grid-template-columns: 1fr !important;
     }
-
-    .page-banner h1, .subpage-hero h1 {
-        font-size: 22px !important;
-        margin-bottom: 8px !important;
-        line-height: 1.25 !important;
-    }
-
-    .page-banner p, .subpage-hero p {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
-    }
-
-    .tour-details-layout {
-        padding: 15px 0 !important;
-        gap: 20px !important;
-    }
-
-    .itinerary-container {
-        padding: 0 !important;
-    }
-
-    .itinerary-container h2 {
-        font-size: 20px !important;
-        margin-bottom: 16px !important;
-        padding-left: 0 !important;
-    }
-
-    .itinerary-timeline {
-        padding-left: 18px !important;
-        margin-top: 10px !important;
-        border-left: 3px solid var(--primary) !important;
-    }
-
-    .day-card {
-        padding: 20px 18px !important;
-        margin-bottom: 20px !important;
-        border-radius: 14px !important;
-        border: 2px solid var(--border-color) !important;
-    }
-
-    .day-card::before {
-        left: -27px !important;
-        top: 24px !important;
-        width: 12px !important;
-        height: 12px !important;
-    }
-
-    .day-card h3 {
-        font-size: 16px !important;
-        margin-bottom: 8px !important;
-        color: var(--primary) !important;
-    }
-
-    .day-card p {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-    }
-}
-
-/* ==========================================================================
-   SMALL SMARTPHONE SCREEN ADJUSTMENT (< 400PX)
-   ========================================================================== */
-@media (max-width: 400px) {
-    .container {
-        padding: 0 14px !important;
-    }
-
-    .itinerary-timeline {
-        padding-left: 14px !important;
-    }
-
-    .day-card::before {
-        left: -21px !important;
-    }
-}
-/* Ensure all section titles and text adapt dynamically in light mode */
-.section-title, h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary) !important;
-}
-
-.section-subtitle {
-    color: var(--text-secondary) !important;
-}
-
-/* Ensure review items adapt properly to both light and dark backgrounds */
-.review-item {
-    background-color: var(--bg-surface) !important;
-    border: 1px solid var(--border-color) !important;
-    border-left: 4px solid var(--primary-color) !important;
-    box-shadow: var(--shadow);
-}
-
-.review-item strong {
-    color: var(--text-primary) !important;
-}
-
-.review-item p {
-    color: var(--text-secondary) !important;
-}
-
-
-/* ==========================================
-   FINAL FEEDBACK LIGHT/DARK CONTRAST & OUTLINE FIX
-   ========================================== */
-
-/* 1. Ensure review card items have solid backgrounds, visible outlines, and clear padding */
-.review-card-item {
-    background-color: var(--bg-surface) !important;
-    border: 1.5px solid var(--border-color) !important;
-    border-left: 5px solid var(--primary-color) !important;
-    padding: 14px 16px !important;
-    border-radius: 10px !important;
-    box-shadow: var(--shadow) !important;
-    margin-bottom: 12px !important;
-}
-
-/* 2. Fix author and text visibility so they never disappear in light mode */
-.review-author {
-    color: var(--text-primary) !important;
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
-}
-
-.review-country {
-    color: var(--text-secondary) !important;
-    font-weight: 400 !important;
-    font-size: 0.8rem !important;
-}
-
-.review-text {
-    color: var(--text-primary) !important;
-    font-size: 0.9rem !important;
-    margin-top: 4px !important;
-    word-break: break-word !important;
-}
-
-/* 3. Add clean outlines/borders to the main form and feedback containers */
-#reviews .card {
-    background-color: var(--bg-surface) !important;
-    border: 1.5px solid var(--border-color) !important;
-    box-shadow: var(--shadow) !important;
-}
-
-/* ==========================================
-   POLISHED INPUTS & FEEDBACK FEED OUTLINE
-   ========================================== */
-
-/* Modern, high-end styling for all form input boxes */
-#reviews input, 
-#reviews select, 
-#reviews textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color) !important;
-    background-color: var(--bg-body) !important;
-    color: var(--text-primary) !important;
-    font-family: inherit;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-#reviews input:focus, 
-#reviews select:focus, 
-#reviews textarea:focus {
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-}
-
-#reviews input::placeholder, 
-#reviews textarea::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.7;
-}
-
-
-/* Matching outer containers for Leave a Review and Latest Traveler Feedback */
-#reviews .card {
-    background-color: var(--bg-surface) !important;
-    border: 1px solid var(--border-color) !important;
-    box-shadow: var(--shadow) !important;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Individual feedback items inside the container */
-.review-card-item {
-    background-color: var(--bg-secondary) !important;
-    border: 1px solid var(--border-color) !important;
-    border-left: 4px solid var(--primary-color) !important;
-    padding: 14px 16px !important;
-    border-radius: 10px !important;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.review-author {
-    color: var(--text-primary) !important;
-    font-weight: 700;
-}
-
-.review-country {
-    color: var(--text-secondary) !important;
-    font-weight: 400;
-}
-
-.review-text {
-    color: var(--text-secondary) !important;
-    margin-top: 4px;
-    word-break: break-word;
 }
