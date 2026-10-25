@@ -324,53 +324,55 @@
 
 
 <!-- REAL-TIME CUSTOMER FEEDBACK SECTION -->
-<section id="reviews" class="section bg-dark-alt" style="padding: 40px 15px;">
-    <div class="container" style="max-width: 1100px; margin: 0 auto;">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 8px; font-size: 1.75rem;">Guest Reviews & Feedback</h2>
-        <p class="section-subtitle" style="text-align: center; opacity: 0.8; margin-bottom: 30px; font-size: 0.95rem;">Real-time experiences shared by our valued travelers.</p>
+<section id="reviews" class="section">
+    <div class="container">
+        <h2 class="section-title">Guest Reviews & Feedback</h2>
+        <p class="section-subtitle">Real-time experiences shared by our valued travelers.</p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: start;">
             
-            <!-- Submit Review Form -->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; box-sizing: border-box;">
-                <h3 style="margin-bottom: 15px; font-size: 1.15rem;"><i class="fa-solid fa-pen-to-square"></i> Leave a Review</h3>
+            <!-- Leave a Review Box -->
+            <div class="card" style="padding: 30px; border-radius: 16px;">
+                <h3 style="margin-bottom: 20px; font-size: 1.2rem; font-weight: 700;">
+                    <i class="fa-solid fa-pen-to-square" style="color: var(--primary-color);"></i> Leave a Review
+                </h3>
                 <form id="feedbackForm">
-                    <div style="margin-bottom: 12px;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Your Name</label>
-                        <input type="text" id="reviewerName" placeholder="e.g. Sarah Jenkins" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Your Name</label>
+                        <input type="text" id="reviewerName" placeholder="e.g. Sarah Jenkins" required>
                     </div>
                     
-                    <div style="margin-bottom: 12px;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Country</label>
-                        <input type="text" id="reviewerCountry" placeholder="e.g. United Kingdom" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Country</label>
+                        <input type="text" id="reviewerCountry" placeholder="e.g. United Kingdom" required>
                     </div>
 
-                    <div style="margin-bottom: 12px;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Rating</label>
-                        <select id="reviewerRating" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;">
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Rating</label>
+                        <select id="reviewerRating">
                             <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
                             <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
                             <option value="3">⭐⭐⭐ (3/5 Average)</option>
-                            <option value="2">⭐⭐ (2/5 Bad)</option>
-                            <option value="1">⭐ (1/5 Very Bad)</option>
                         </select>
                     </div>
 
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 4px;">Your Feedback</label>
-                        <textarea id="reviewerMessage" rows="3" placeholder="Share your experience touring Sri Lanka with Manurosh Tours..." required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box;"></textarea>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Your Feedback</label>
+                        <textarea id="reviewerMessage" rows="4" placeholder="Share your experience touring Sri Lanka with Manurosh Tours..." required></textarea>
                     </div>
 
-                    <button type="submit" style="width: 100%; background: #22c55e; color: #fff; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;">
+                    <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; font-weight: 600; border-radius: 8px;">
                         Submit Feedback
                     </button>
                 </form>
             </div>
 
-            <!-- Live Feedback Feed (Latest 5 Only) -->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; box-sizing: border-box; min-height: 300px; display: flex; flex-direction: column;">
-                <h3 style="margin-bottom: 15px; font-size: 1.15rem;"><i class="fa-solid fa-comments"></i> Latest Traveler Feedback</h3>
-                <div id="feedbackList" style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+            <!-- Latest Traveler Feedback Box (Matching Main Container) -->
+            <div class="card" style="padding: 30px; border-radius: 16px; min-height: 480px; display: flex; flex-direction: column;">
+                <h3 style="margin-bottom: 20px; font-size: 1.2rem; font-weight: 700;">
+                    <i class="fa-solid fa-comments" style="color: var(--primary-color);"></i> Latest Traveler Feedback
+                </h3>
+                <div id="feedbackList" style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1;">
                     <!-- Realtime feedback items render here -->
                 </div>
             </div>
@@ -400,6 +402,7 @@
   const database = getDatabase(app, DB_URL);
   const reviewsRef = ref(database, 'reviews');
 
+  // Form Submission
   const feedbackForm = document.getElementById('feedbackForm');
   if (feedbackForm) {
     feedbackForm.addEventListener('submit', (e) => {
@@ -426,6 +429,7 @@
     });
   }
 
+  // Real-Time Feedback Renderer (Latest 5 Only)
   const feedbackList = document.getElementById('feedbackList');
   if (feedbackList) {
     onValue(reviewsRef, (snapshot) => {
@@ -433,32 +437,33 @@
       const data = snapshot.val();
 
       if (data) {
-        // Convert object to array, reverse for newest first, then take only the first 5
+        // Reverse array for newest first, then keep only top 5
         const reviewsArray = Object.values(data).reverse().slice(0, 5);
 
         reviewsArray.forEach((review) => {
           const stars = "⭐".repeat(review.rating);
           const reviewElement = document.createElement('div');
-          reviewElement.style.cssText = "background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border-left: 4px solid #22c55e; flex-shrink: 0;";
+          
+          // Use CSS class for dynamic Light/Dark mode adaptability
+          reviewElement.className = "review-card-item";
           
           reviewElement.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 5px;">
-              <strong style="color: #fff; font-size: 0.9rem;">${review.name} <span style="font-weight: normal; font-size: 0.75rem; opacity: 0.7;">(${review.country})</span></strong>
-              <span style="font-size: 0.8rem;">${stars}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 5px;">
+              <strong class="review-author">${review.name} <span class="review-country">(${review.country})</span></strong>
+              <span style="font-size: 0.85rem;">${stars}</span>
             </div>
-            <p style="margin: 0; font-size: 0.85rem; color: #d1d5db; word-break: break-word;">"${review.message}"</p>
+            <p class="review-text">"${review.message}"</p>
           `;
           feedbackList.appendChild(reviewElement);
         });
       } else {
-        feedbackList.innerHTML = `<p style="color: #9ca3af; font-size: 0.85rem; text-align: center; margin: auto;">No reviews submitted yet. Be the first to leave a review!</p>`;
+        feedbackList.innerHTML = `<p style="color: var(--text-secondary); font-size: 0.85rem; text-align: center; margin: auto;">No reviews submitted yet. Be the first to leave a review!</p>`;
       }
     }, (error) => {
       console.error("Firebase Read Error:", error);
     });
   }
 </script>
-
         
     <!-- FOOTER -->
     <footer class="footer bg-dark">

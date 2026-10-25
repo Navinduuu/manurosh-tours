@@ -1195,3 +1195,138 @@ footer {
         left: -21px !important;
     }
 }
+/* Ensure all section titles and text adapt dynamically in light mode */
+.section-title, h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+}
+
+.section-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+/* Ensure review items adapt properly to both light and dark backgrounds */
+.review-item {
+    background-color: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--primary-color) !important;
+    box-shadow: var(--shadow);
+}
+
+.review-item strong {
+    color: var(--text-primary) !important;
+}
+
+.review-item p {
+    color: var(--text-secondary) !important;
+}
+
+
+/* ==========================================
+   FINAL FEEDBACK LIGHT/DARK CONTRAST & OUTLINE FIX
+   ========================================== */
+
+/* 1. Ensure review card items have solid backgrounds, visible outlines, and clear padding */
+.review-card-item {
+    background-color: var(--bg-surface) !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-left: 5px solid var(--primary-color) !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+    box-shadow: var(--shadow) !important;
+    margin-bottom: 12px !important;
+}
+
+/* 2. Fix author and text visibility so they never disappear in light mode */
+.review-author {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+.review-country {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+}
+
+.review-text {
+    color: var(--text-primary) !important;
+    font-size: 0.9rem !important;
+    margin-top: 4px !important;
+    word-break: break-word !important;
+}
+
+/* 3. Add clean outlines/borders to the main form and feedback containers */
+#reviews .card {
+    background-color: var(--bg-surface) !important;
+    border: 1.5px solid var(--border-color) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+/* ==========================================
+   POLISHED INPUTS & FEEDBACK FEED OUTLINE
+   ========================================== */
+
+/* Modern, high-end styling for all form input boxes */
+#reviews input, 
+#reviews select, 
+#reviews textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--bg-body) !important;
+    color: var(--text-primary) !important;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#reviews input:focus, 
+#reviews select:focus, 
+#reviews textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+#reviews input::placeholder, 
+#reviews textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+
+/* Matching outer containers for Leave a Review and Latest Traveler Feedback */
+#reviews .card {
+    background-color: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Individual feedback items inside the container */
+.review-card-item {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--primary-color) !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.review-author {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+}
+
+.review-country {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
+}
+
+.review-text {
+    color: var(--text-secondary) !important;
+    margin-top: 4px;
+    word-break: break-word;
+}
