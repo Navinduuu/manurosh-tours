@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Instant Theme Loader to prevent light-mode flash on page navigation -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.add('dark-mode');
+            });
+        }
+    </script>
 </head>
 <body>
 
@@ -50,7 +60,7 @@
             <p>Your royal journey begins here with expert chauffeur guides and bespoke travel packages.</p>
             <div class="hero-btns">
                 <a href="#tours" class="btn-primary">Explore Tours</a>
-                <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'd%20like%20to%20plan%20a%20custom%20trip." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Customize Your Tour</a>
+                <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I%27d%20like%20to%20plan%20a%20custom%20trip." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Customize Your Tour</a>
             </div>
         </div>
     </section>
@@ -606,7 +616,7 @@
     </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I'm%20interested%20in%20booking%20a%20private%20tour." target="_blank" class="float-whatsapp">
+    <a href="https://wa.me/94758257270?text=Hi%20Manurosh%20Tours!%20I%27m%20interested%20in%20booking%20a%20private%20tour." target="_blank" class="float-whatsapp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -626,23 +636,31 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Dark / Light Theme Toggle
+        // Dark / Light Theme Toggle Function
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const themeIcon = document.getElementById('themeIcon');
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
+            if (themeIcon) {
+                if (document.body.classList.contains('dark-mode')) {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
             }
         }
 
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
-        }
+        // Initialize Theme state on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeIcon = document.getElementById('themeIcon');
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                if (themeIcon) {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            }
+        });
 
         // TOUR FILTERING WITH ALWAYS-VISIBLE CUSTOM TOUR CARD
         function filterTours() {
