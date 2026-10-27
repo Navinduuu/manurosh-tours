@@ -14,21 +14,30 @@
     </script>
 </head>
 <body>
+        <!-- NAVIGATION BAR -->
     <header>
         <div class="container navbar">
             <a href="index.html#home" class="logo"><i class="fa-solid fa-compass"></i> MANUROSH <span>TOURS</span></a>
+            
             <nav>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#tours">Tours</a></li>
+                    <li><a href="index.html#activities">Activities</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#reviews">Feedback</a></li>
                 </ul>
             </nav>
+
             <div class="nav-right">
-                <button class="theme-toggle-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+
                 <a href="https://wa.me/94758257270" target="_blank" class="whatsapp-btn-nav"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
-                <button class="menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+                <button class="menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
             </div>
         </div>
     </header>
