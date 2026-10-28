@@ -146,7 +146,6 @@ header {
     flex-shrink: 0;
 }
 
-/* Perfect Scaled Theme Toggle Button */
 .theme-toggle-btn {
     background: var(--bg-secondary);
     color: var(--text-primary);
@@ -279,7 +278,6 @@ header {
     justify-content: center;
 }
 
-/* BUTTONS WITH VIBRANT GRADIENTS */
 .btn-primary {
     background: var(--gradient-primary);
     color: white;
@@ -330,7 +328,7 @@ header {
     transform: translateY(-2px) scale(1.05);
 }
 
-/* 5. SEARCH BAR & COLORFUL FEATURE CARDS */
+/* 5. SEARCH BAR & FEATURE CARDS */
 .search-container {
     max-width: 1100px;
     margin: -50px auto 0 auto;
@@ -435,9 +433,7 @@ header {
     color: var(--text-secondary);
 }
 
-/* ==========================================
-   ABOUT US & COLLAGE STYLES
-   ========================================== */
+/* ABOUT US & COLLAGE STYLES */
 .welcome-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -470,7 +466,6 @@ header {
     line-height: 1.75;
 }
 
-/* Collage Container */
 .collage-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -505,19 +500,11 @@ header {
     transform: scale(1.06);
 }
 
-.img-top-left {
-    height: 190px;
-}
+.img-top-left { height: 190px; }
+.img-bot-left { height: 170px; }
+.img-right-tall { height: 376px; }
 
-.img-bot-left {
-    height: 170px;
-}
-
-.img-right-tall {
-    height: 376px;
-}
-
-/* 6. HOMEPAGE TOUR CARDS & VIBRANT TAGS */
+/* 6. TOUR CARDS & VEHICLE CARDS (CAROUSEL INTEGRATED) */
 .section-title {
     text-align: center;
     font-size: 40px;
@@ -545,6 +532,8 @@ header {
     overflow: hidden;
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column !important;
 }
 
 .tour-card:hover {
@@ -553,24 +542,62 @@ header {
     border-color: var(--primary);
 }
 
-.tour-img {
-    height: 240px !important;
-    min-height: 240px !important;
-    width: 100%;
+.tour-img-container {
     position: relative;
+    height: 240px !important;
+    width: 100% !important;
+    overflow: hidden;
+    background-color: #0f172a;
+}
+
+/* Individual Card Carousel Track & Controls */
+.card-carousel-track {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 18px;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.card-carousel-slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.card-carousel-slide img,
+.tour-img-container > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
     transition: transform 0.5s ease;
 }
 
-.tour-card:hover .tour-img {
-    transform: scale(1.05);
+.card-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    z-index: 10;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
+
+.card-carousel-btn:hover {
+    background: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.card-prev-btn { left: 12px; }
+.card-next-btn { right: 12px; }
 
 .badge {
     background: rgba(15, 23, 42, 0.85);
@@ -598,6 +625,9 @@ header {
 
 .tour-body {
     padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .tour-tags {
@@ -641,11 +671,11 @@ header {
 
 .tour-footer {
     display: flex;
-    justify-content: flex-end; /* Moves button to the right side */
+    justify-content: flex-end;
     align-items: center;
     border-top: 1px solid var(--border-color);
     padding-top: 20px;
-    margin-top: auto; /* Ensures consistent alignment at the bottom */
+    margin-top: auto;
 }
 
 /* 7. HORIZONTAL SCROLL DESTINATIONS TRACK */
@@ -934,7 +964,7 @@ header {
     color: var(--accent);
 }
 
-/* 10. SUBPAGE ITINERARY STYLES */
+/* 10. SUBPAGE ITINERARY & SIDEBAR STYLES */
 .page-banner, .subpage-hero {
     margin-top: 90px;
     padding: 35px 20px 25px 20px;
@@ -964,6 +994,7 @@ header {
     grid-template-columns: 2fr 1fr;
     gap: 30px;
     padding: 25px 0;
+    align-items: start;
 }
 
 .itinerary-container h2 {
@@ -1026,32 +1057,32 @@ header {
     background: var(--bg-surface);
     border: 2px solid var(--border-color);
     border-radius: 16px;
-    padding: 32px;
+    padding: 24px;
     position: sticky;
     top: 120px;
     box-shadow: var(--shadow);
 }
 
 .sidebar-widget h3 {
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text-primary);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     font-weight: 800;
 }
 
 .widget-highlights {
     list-style: none;
-    margin: 24px 0;
+    margin: 16px 0;
 }
 
 .widget-highlights li {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-primary);
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .widget-highlights i {
@@ -1244,7 +1275,6 @@ footer {
         display: none; 
     }
 
-    /* Perfectly Scaled Dark Mode Button on Mobile */
     .theme-toggle-btn {
         width: 36px !important;
         height: 36px !important;
@@ -1255,34 +1285,11 @@ footer {
         gap: 10px !important;
     }
 
-    /* Hero Slideshow Mobile */
     .hero-slider {
         margin-top: 75px !important;
         height: 65vh !important;
         min-height: 400px !important;
         padding: 0 20px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .hero-bg-slideshow {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 1 !important;
-    }
-
-    .hero-slide {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background-size: cover !important;
-        background-position: center !important;
     }
 
     .hero-content h1 {
@@ -1290,7 +1297,6 @@ footer {
         line-height: 1.2;
     }
 
-    /* Compact Mobile Feature Boxes */
     .features-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 14px !important;
@@ -1302,32 +1308,10 @@ footer {
         border-radius: 12px !important;
     }
 
-    .feature-box i {
-        font-size: 22px !important;
-        padding: 10px !important;
-        margin-bottom: 12px !important;
-    }
-
-    .feature-box h3 {
-        font-size: 15px !important;
-        margin-bottom: 6px !important;
-    }
-
-    .feature-box p {
-        font-size: 12.5px !important;
-        line-height: 1.4 !important;
-    }
-
-    /* About Collage Mobile Layout (Stacked Correctly) */
     .welcome-container {
         display: flex !important;
         flex-direction: column !important;
         gap: 32px !important;
-    }
-
-    .welcome-text {
-        width: 100% !important;
-        text-align: left !important;
     }
 
     .welcome-text h2 {
@@ -1342,19 +1326,6 @@ footer {
         margin-top: 10px !important;
     }
 
-    .img-top-left {
-        height: 160px !important;
-    }
-
-    .img-bot-left {
-        height: 140px !important;
-    }
-
-    .img-right-tall {
-        height: 312px !important;
-    }
-
-    /* Mobile Horizontal Swipe Scroll for Tour Cards */
     .tour-grid {
         display: flex !important;
         overflow-x: auto !important;
@@ -1374,34 +1345,16 @@ footer {
         scroll-snap-align: start !important;
     }
 
-    /* Mobile Dimensions for Destination Cards */
     .dest-card {
         flex: 0 0 240px !important;
         width: 240px !important;
         min-width: 240px !important;
-        max-width: 240px !important;
         height: 330px !important;
-        min-height: 330px !important;
-        max-height: 330px !important;
     }
 
-    /* Activities Mobile Grid */
     .activities-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-    }
-
-    .activity-img {
-        height: 240px !important;
-        width: 100% !important;
-        position: relative !important;
-    }
-
-    .activity-img img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
     }
 
     .contact-grid, .footer-grid { 
@@ -1425,63 +1378,16 @@ footer {
         right: 20px;
     }
 
-    /* Subpage Itinerary Mobile Padding & Safe Widget Spacing */
     .tour-details-layout {
         display: flex !important;
         flex-direction: column !important;
         gap: 24px !important;
         padding: 20px 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .itinerary-container {
-        width: 100% !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    .itinerary-timeline {
-        padding-left: 18px !important;
-        margin-left: 6px !important;
-        border-left: 3px solid var(--primary) !important;
-    }
-
-    .day-card {
-        padding: 20px 18px !important;
-        margin-bottom: 20px !important;
-        margin-left: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .day-card::before {
-        left: -28px !important;
-        top: 22px !important;
-        width: 14px !important;
-        height: 14px !important;
-    }
-
-    .day-card h3 {
-        font-size: 18px !important;
-        line-height: 1.35 !important;
-    }
-
-    .day-card p {
-        font-size: 14px !important;
-        line-height: 1.6 !important;
     }
 
     .sidebar-widget {
-        padding: 24px 20px !important;
-        margin: 0 !important;
+        position: static !important;
         width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .widget-highlights li {
-        font-size: 13.5px !important;
-        gap: 10px !important;
     }
 }
 
@@ -1490,15 +1396,3 @@ footer {
         grid-template-columns: 1fr !important;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
